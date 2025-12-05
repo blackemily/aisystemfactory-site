@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI System Factory – Your Own Digital Product Assembly Line</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Turn AI into your personal product factory. Create unlimited online income systems, funnels, email sequences, traffic plans, and 30-day action maps you can use or sell." />
+  <style>
+    :root {
+      --bg-main: #020617;
+      --bg-alt: #020818;
+      --bg-card: #020b18;
+      --bg-card-soft: #020c1c;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.16);
+      --accent-strong: #4ade80;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #000 55%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(2, 6, 23, 0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.8rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 0.9rem;
+      background: radial-gradient(circle at 20% 0, #fbbf24, #eab308 40%, #854d0e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.5), 0 22px 40px rgba(0, 0, 0, 0.9);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #022c22;
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .nav-title-main {
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #f9fafb;
+    }
+
+    .nav-title-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.88rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: #f9fafb;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(234, 179, 8, 0.6);
+      background: rgba(24, 16, 5, 0.8);
+      font-size: 0.7rem;
+      color: #fef9c3;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #fbbf24;
+      box-shadow: 0 0 8px rgba(250, 204, 21, 0.9);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.08s ease, box-shadow 0.08s ease,
+        background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #fbbf24, #facc15, #fef08a);
+      color: #1f2933;
+      box-shadow: 0 16px 40px rgba(234, 179, 8, 0.55);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 50px rgba(234, 179, 8, 0.7);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(148, 163, 184, 0.7);
+      color: #e5e7eb;
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(248, 250, 252, 0.95);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section {
+      padding: 3.5rem 1.25rem;
+    }
+
+    .section-alt {
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .section-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+      padding-top: 3rem;
+      padding-bottom: 3.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.6fr);
+      gap: 2.75rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.16rem 0.7rem 0.16rem 0.2rem;
+      border-radius: 999px;
+      background: radial-gradient(circle at 0 50%, rgba(234, 179, 8, 0.35), transparent 55%);
+      border: 1px solid rgba(234, 179, 8, 0.5);
+      margin-bottom: 1.15rem;
+    }
+
+    .hero-eyebrow-label {
+      padding: 0.16rem 0.52rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      font-size: 0.72rem;
+      color: #fef3c7;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-eyebrow-text {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3.3vw, 2.7rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #fde68a, #facc15, #fbbf24);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 30rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #fbbf24;
+      box-shadow: 0 0 8px rgba(251, 191, 36, 0.85);
+    }
+
+    .hero-card {
+      border-radius: 1.4rem;
+      background: radial-gradient(circle at 0 0, rgba(234, 179, 8, 0.16), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(30, 64, 175, 0.18), #020617 70%);
+      border: 1px solid rgba(15, 23, 42, 0.95);
+      box-shadow: 0 16px 50px rgba(15, 23, 42, 0.9);
+      padding: 1.4rem 1.25rem 1.35rem;
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-chip {
+      font-size: 0.7rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      color: #e5e7eb;
+    }
+
+    .hero-badge {
+      font-size: 0.7rem;
+      padding: 0.14rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(234, 179, 8, 0.5);
+      color: #fef3c7;
+    }
+
+    .hero-steps {
+      display: grid;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-step {
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+
+    .hero-step-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5e7eb;
+      flex-shrink: 0;
+    }
+
+    .hero-step-content {
+      font-size: 0.8rem;
+    }
+
+    .hero-step-content strong {
+      display: block;
+      margin-bottom: 0.08rem;
+      color: #e5e7eb;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.75rem;
+    }
+
+    .hero-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card-price {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.1rem;
+      font-size: 0.78rem;
+    }
+
+    .hero-card-price span:first-child {
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .hero-card-price span:last-child {
+      color: #fef3c7;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.6rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-strong);
+      margin-bottom: 0.3rem;
+    }
+
+    .section-intro {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      border-radius: 1.1rem;
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.98));
+      padding: 1.25rem 1.2rem;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.9);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .card-pill {
+      font-size: 0.7rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.85);
+      color: #e5e7eb;
+    }
+
+    .card-sub {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.75rem;
+      font-size: 0.86rem;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .card-list li {
+      display: flex;
+      gap: 0.45rem;
+    }
+
+    .card-list-icon {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.3rem;
+    }
+
+    .card-footer-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .assembly {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
+      gap: 1.8rem;
+      align-items: flex-start;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .chip {
+      padding: 0.16rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .assembly-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .assembly-item {
+      border-radius: 0.9rem;
+      border: 1px dashed rgba(55, 65, 81, 0.9);
+      background: radial-gradient(circle at top left, rgba(234, 179, 8, 0.12), rgba(15, 23, 42, 1));
+      padding: 0.75rem 0.7rem;
+      font-size: 0.8rem;
+    }
+
+    .assembly-item strong {
+      display: block;
+      margin-bottom: 0.12rem;
+      color: #f9fafb;
+    }
+
+    .assembly-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.7rem;
+      margin-bottom: 0.35rem;
+      color: var(--text-muted);
+    }
+
+    .assembly-tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .step-card {
+      border-radius: 1rem;
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 1), rgba(2, 6, 23, 1));
+      padding: 1.1rem 1rem;
+      font-size: 0.84rem;
+    }
+
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.76rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      border-radius: 1.1rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: linear-gradient(145deg, rgba(15, 23, 42, 1), rgba(2, 6, 23, 1));
+      padding: 1.1rem 1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.84rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card.featured {
+      border-color: rgba(234, 179, 8, 0.8);
+      box-shadow: 0 20px 55px rgba(250, 204, 21, 0.7);
+      transform: translateY(-2px);
+    }
+
+    .pricing-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .pricing-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .pricing-price {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fef3c7;
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+    }
+
+    .pricing-price span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .pricing-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .pricing-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.4rem 0 0.75rem;
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .pricing-list li {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .pricing-bullet {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .pricing-cta {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .pricing-note {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .ribbon {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.8rem;
+      font-size: 0.7rem;
+      padding: 0.16rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(234, 179, 8, 0.7);
+      background: rgba(15, 23, 42, 0.98);
+      color: #fef3c7;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 1.7rem;
+      align-items: flex-start;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 0.8rem;
+      font-size: 0.86rem;
+    }
+
+    .faq-item {
+      border-radius: 0.9rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.98);
+      padding: 0.75rem 0.8rem;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      color: var(--text-muted);
+    }
+
+    footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      background: #020617;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.75rem 1.25rem 2.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1.2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        max-width: 420px;
+        margin: 0 auto;
+      }
+
+      .assembly {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .faq-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-inner {
+        padding-inline: 1rem;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .pricing-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding-top: 2.2rem;
+      }
+
+      .section {
+        padding-inline: 1rem;
+      }
+
+      .hero-title {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="nav-inner">
+        <div class="nav-left">
+          <div class="logo-mark">AI</div>
+          <div class="nav-title">
+            <div class="nav-title-main">AI System Factory</div>
+            <div class="nav-title-sub">Your own digital product assembly line</div>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#two-ways">2 Ways You Profit</a>
+          <a href="#assembly">What It Produces</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="nav-cta">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span>Limited creator access</span>
+          </div>
+          <a href="https://localebooks.gumroad.com/l/exijhq" class="btn btn-primary">Get the Factory</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="section hero">
+        <div class="section-inner hero-grid">
+          <div>
+            <div class="hero-eyebrow">
+              <div class="hero-eyebrow-label">New • AI System Factory</div>
+              <div class="hero-eyebrow-text">Turn one GPT into a never-ending stream of products.</div>
+            </div>
+            <h1 class="hero-title">
+              Own the <span>engine</span> that cranks out complete online income systems on demand.
+            </h1>
+            <p class="hero-subtitle">
+              Instead of buying other people’s methods, you own the factory that creates them. Generate systems,
+              funnels, email sequences, traffic plans, and 30-day action maps you can use yourself or package and sell.
+            </p>
+            <div class="hero-cta-row">
+              <a href="https://localebooks.gumroad.com/l/exijhq" class="btn btn-primary">
+                Get Creator Access
+              </a>
+              <a href="#two-ways" class="btn btn-outline">
+                See the two profit paths
+              </a>
+            </div>
+            <div class="hero-meta">
+              <span>
+                <span class="hero-meta-dot"></span>
+                <strong>Two ways to win:</strong> sell the factory or sell the systems it produces.
+              </span>
+              <span>
+                <strong>You control:</strong> niches, angles, intensity, and output volume.
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <div class="hero-card" aria-label="Factory snapshot">
+              <div class="hero-card-header">
+                <div class="hero-card-title">
+                  System Run: <span style="color:#fef3c7;">AI Video Cashflow 24</span>
+                  <span class="hero-chip">Sample output</span>
+                </div>
+                <div class="hero-badge">1 click → full system</div>
+              </div>
+              <div class="hero-steps">
+                <div class="hero-step">
+                  <div class="hero-step-icon">1</div>
+                  <div class="hero-step-content">
+                    <strong>Pick a category.</strong>
+                    Faceless video, affiliate list building, AI content, local lead-gen, digital downloads, and more.
+                  </div>
+                </div>
+                <div class="hero-step">
+                  <div class="hero-step-icon">2</div>
+                  <div class="hero-step-content">
+                    <strong>Factory builds the system.</strong>
+                    Blueprint, funnel pages, lead magnet, email sequences, daily tasks, and traffic plan—generated in one pass.
+                  </div>
+                </div>
+                <div class="hero-step">
+                  <div class="hero-step-icon">3</div>
+                  <div class="hero-step-content">
+                    <strong>Use or resell it.</strong>
+                    Follow it yourself, bundle it as a course or PDF, turn it into a “business in a box,” or use it with clients.
+                  </div>
+                </div>
+              </div>
+              <div class="hero-card-footer">
+                <div class="hero-card-tags">
+                  <span>#systems</span>
+                  <span>#funnels</span>
+                  <span>#emails</span>
+                  <span>#traffic</span>
+                </div>
+                <div class="hero-card-price">
+                  <span>Typical system: $297+</span>
+                  <span>Your factory: create as many as you want.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TWO WAYS YOU PROFIT -->
+      <section id="two-ways" class="section section-alt">
+        <div class="section-inner">
+          <div class="section-kicker">Two profit engines</div>
+          <h2 class="section-title">Sell the machine. Sell what the machine produces.</h2>
+          <p class="section-intro">
+            AI System Factory gives you two separate but connected income paths. You can sell access to the factory
+            itself, and you can sell the complete systems, funnels, and “business-in-a-box” packages it creates—all with
+            virtually no production cost.
+          </p>
+
+          <div class="grid-2">
+            <!-- Machine -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <div class="card-title">1. Sell the factory itself</div>
+                  <div class="card-sub">
+                    Offer creator access to the GPT that builds systems, funnels, and traffic plans on demand.
+                  </div>
+                </div>
+                <div class="card-pill">Creators &amp; agency owners</div>
+              </div>
+              <ul class="card-list">
+                <li>
+                  <div class="card-list-icon"></div>
+                  <div>Position it as “your own AI product creation lab” for affiliates, course sellers, and list owners.</div>
+                </li>
+                <li>
+                  <div class="card-list-icon"></div>
+                  <div>Charge one-time, monthly, or offer a license that lets them sell what they generate.</div>
+                </li>
+                <li>
+                  <div class="card-list-icon"></div>
+                  <div>Use it as a flagship offer that separates you from generic make-money products.</div>
+                </li>
+              </ul>
+              <div class="card-footer-note">
+                Think of this like selling the right to run a private product engine—without staff, inventory, or
+                production headaches.
+              </div>
+            </div>
+
+            <!-- Assembly line -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <div class="card-title">2. Sell the systems it produces</div>
+                  <div class="card-sub">
+                    Use the factory as your personal assembly line to pump out systems, micro-offers, and “DFY businesses.”
+                  </div>
+                </div>
+                <div class="card-pill">End users &amp; beginners</div>
+              </div>
+              <ul class="card-list">
+                <li>
+                  <div class="card-list-icon"></div>
+                  <div>Create micro-systems, full courses, funnels, and traffic packs as individual products.</div>
+                </li>
+                <li>
+                  <div class="card-list-icon"></div>
+                  <div>Bundle outputs into PLR packs, lead magnets, and low-ticket front-end offers.</div>
+                </li>
+                <li>
+                  <div class="card-list-icon"></div>
+                  <div>Stack them into a “vault” membership that drips new systems every week or month.</div>
+                </li>
+              </ul>
+              <div class="card-footer-note">
+                Launch new offers whenever you like. Test, rotate, and retire products without ever running out of ideas
+                or assets.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ASSEMBLY LINE -->
+      <section id="assembly" class="section">
+        <div class="section-inner assembly">
+          <div>
+            <div class="section-kicker">Your AI assembly line</div>
+            <h2 class="section-title">What the factory actually builds for you.</h2>
+            <p class="section-intro">
+              This isn’t just “ideas” or vague advice. Each run produces a complete, sellable system with all the moving
+              parts: blueprint, funnel, emails, lead magnet, daily tasks, and traffic strategy you can follow or repackage.
+            </p>
+            <div class="chip-row">
+              <div class="chip">Full systems</div>
+              <div class="chip">Micro “$X/day” plans</div>
+              <div class="chip">Funnels &amp; pages</div>
+              <div class="chip">Email sequences</div>
+              <div class="chip">Traffic plans</div>
+              <div class="chip">30-day action maps</div>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); max-width:32rem;">
+              Every system can be beginner-friendly or pro-level. Choose the category (affiliate, faceless video, AI
+              publishing, local lead-gen, etc.), pick the intensity, and let the factory generate an original system with
+              all assets included.
+            </p>
+          </div>
+          <div>
+            <div class="assembly-grid">
+              <div class="assembly-item">
+                <div class="assembly-tag">
+                  <span class="assembly-tag-dot"></span>
+                  <span>System core</span>
+                </div>
+                <strong>Blueprint &amp; monetization map</strong>
+                A named system, promise, target user, step-by-step plan, monetization paths, and scaling options.
+              </div>
+              <div class="assembly-item">
+                <div class="assembly-tag">
+                  <span class="assembly-tag-dot"></span>
+                  <span>Funnel stack</span>
+                </div>
+                <strong>Pages &amp; “DFY” flow</strong>
+                Opt-in, bridge, VSL outline, sales page copy, thank-you, and simple upsell logic you can plug into your
+                favorite platform.
+              </div>
+              <div class="assembly-item">
+                <div class="assembly-tag">
+                  <span class="assembly-tag-dot"></span>
+                  <span>Follow-up engine</span>
+                </div>
+                <strong>Email &amp; promo sequences</strong>
+                Warm-up emails, launch campaigns, story-based promos, and evergreen follow-up that keeps the system moving.
+              </div>
+              <div class="assembly-item">
+                <div class="assembly-tag">
+                  <span class="assembly-tag-dot"></span>
+                  <span>Execution layer</span>
+                </div>
+                <strong>Daily tasks &amp; traffic plans</strong>
+                30-day checklists, content ideas, posting scripts, and traffic flows so people always know what to do today.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how-it-works" class="section section-alt">
+        <div class="section-inner">
+          <div class="section-kicker">Simple control panel</div>
+          <h2 class="section-title">3 steps to turn AI into your product line.</h2>
+          <p class="section-intro">
+            You don’t need to be a tech genius, copywriter, or funnel builder. The factory runs on plain-language prompts
+            and a simple workflow you can repeat as many times as you like.
+          </p>
+          <div class="steps">
+            <div class="step-card">
+              <div class="step-num">1</div>
+              <div class="step-title">Choose the style of system.</div>
+              <p>
+                Tell the factory what you want: affiliate system, faceless video method, AI publishing, local lead-gen,
+                digital downloads, or a “$X/day” micro plan. Pick beginner, intermediate, or pro mode.
+              </p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">2</div>
+              <div class="step-title">Let the factory build the assets.</div>
+              <p>
+                The GPT generates the system name, promise, blueprint, funnel, emails, traffic plan, and daily execution
+                steps. You can tweak anything, regenerate sections, and save different versions.
+              </p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">3</div>
+              <div class="step-title">Use it—or sell it—as a complete offer.</div>
+              <p>
+                Implement the system yourself, bundle it into a PDF + page + email pack, or resell it as a “DFY” product.
+                Repeat the process for new systems, niches, and angles whenever you like.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section id="pricing" class="section">
+        <div class="section-inner">
+          <div class="section-kicker">Access &amp; licensing</div>
+          <h2 class="section-title">Pick how far you want to take the factory.</h2>
+          <p class="section-intro">
+            Start by using the factory to build systems for yourself, or unlock rights to sell the systems—and even use
+            them with clients. You can adjust these sample price points inside your Gumroad listing.
+          </p>
+
+          <div class="pricing-grid">
+            <!-- Starter -->
+            <div class="pricing-card">
+              <div class="pricing-label">Starter</div>
+              <div class="pricing-name">Personal Factory Access</div>
+              <div class="pricing-price">
+                $97
+                <span>sample one-time</span>
+              </div>
+              <div class="pricing-desc">
+                Use AI System Factory to build unlimited systems for your personal projects.
+              </div>
+              <ul class="pricing-list">
+                <li>
+                  <div class="pricing-bullet"></div>
+                  <div>Full master GPT with system, funnel, email, and traffic modes.</div>
+                </li>
+                <li>
+                  <div class="pricing-bullet"></div>
+                  <div>Unlimited system runs for your own offers and experiments.</div>
+                </li>
+                <li>
+                  <div class="pricing-bullet"></div>
+                  <div>Beginner &amp; Pro modes so you can keep things simple or go deep.</div>
+                </li>
+              </ul>
+              <div class="pricing-cta">
+                <a href="https://localebooks.gumroad.com/l/exijhq" class="btn btn-outline">Start with Starter</a>
+                <div class="pricing-note">
+                  Best if you want to use the systems yourself and aren’t ready to resell outputs yet.
+                </div>
+              </div>
+            </div>
+
+            <!-- Pro (featured) -->
+            <div class="pricing-card featured">
+              <div class="ribbon">Most popular</div>
+              <div class="pricing-label">Pro</div>
+              <div class="pricing-name">Product Assembly Line</div>
+              <div class="pricing-price">
+                $197
+                <span>sample one-time</span>
+              </div>
+              <div class="pricing-desc">
+                Everything in Starter, plus rights to package and sell the systems you generate as your own products.
+              </div>
+              <ul class="pricing-list">
+                <li>
+                  <div class="pricing-bullet"></div>
+                  <div>Sell systems, funnels, and plans you create with the factory.</div>
+                </li>
+                <li>
+                  <div class="pricing-bullet"></div>
+                  <div>Perfect for PLR packs, micro-offers, and “business-in-a-box” style products.</div>
+                </li>
+                <li>
+                  <div class="pricing-bullet"></div>
+                  <div>Launch new products without starting from scratch each time.</div>
+                </li>
+              </ul>
+              <div class="pricing-cta">
+                <a href="https://localebooks.gumroad.com/l/exijhq" class="btn btn-primary">Get Pro Factory Access</a>
+                <div class="pricing-note">
+                  Ideal if you want to run the factory as your own product assembly line and sell what it produces.
+                </div>
+              </div>
+            </div>
+
+            <!-- Agency -->
+            <div class="pricing-card">
+              <div class="pricing-label">Agency / Creator</div>
+              <div class="pricing-name">High-End Implementation Rights</div>
+              <div class="pricing-price">
+                $497
+                <span>sample license</span>
+              </div>
+              <div class="pricing-desc">
+                Use the factory to power a full content, course, or “DFY system” service. Sell outputs to clients and
+                build your own memberships around it.
+              </div>
+              <ul class="pricing-list">
+                <li>
+                  <div class="pricing-bullet"></div>
+                  <div>Create custom systems and funnels for coaching clients and businesses.</div>
+                </li>
+                <li>
+                  <div class="pricing-bullet"></div>
+                  <div>Bundle outputs into recurring memberships (“new system every week/month”).</div>
+                </li>
+                <li>
+                  <div class="pricing-bullet"></div>
+                  <div>Use the factory as a backend engine for your entire product brand.</div>
+                </li>
+              </ul>
+              <div class="pricing-cta">
+                <a href="https://localebooks.gumroad.com/l/exijhq" class="btn btn-outline">Apply for Agency Level</a>
+                <div class="pricing-note">
+                  Best for creators, agencies, and list owners who want to build a whole ecosystem on top of the factory.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="section section-alt">
+        <div class="section-inner faq-grid">
+          <div>
+            <div class="section-kicker">Questions</div>
+            <h2 class="section-title">Answers before you switch your first system on.</h2>
+            <p class="section-intro">
+              This isn’t a magic-money button, and it’s not a guarantee of income. It’s a powerful AI-driven production
+              tool that lets you create structured systems, funnels, and plans much faster than building them by hand.
+            </p>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-q">Is this just another “make money” course?</div>
+              <div class="faq-a">
+                No. This is the opposite of a traditional course. Instead of you buying someone else’s method, you own the
+                factory that can generate methods, funnels, and action plans on demand. You can use them yourself or
+                package the outputs as products, subject to platform rules.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">Does this guarantee I’ll make money?</div>
+              <div class="faq-a">
+                No tool can ethically guarantee any specific income. The factory gives you original, structured systems and
+                assets. Your results depend on your effort, traffic, offers, and how consistently you implement the
+                systems you generate.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">Can I recreate someone else’s paid course?</div>
+              <div class="faq-a">
+                The factory is designed to generate original systems, not copy specific paid products. You should not use
+                it to clone or infringe on other creators’ intellectual property. Use it to create your own offers inspired
+                by long-standing, generic online business models.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">What if I’m a complete beginner?</div>
+              <div class="faq-a">
+                The master GPT includes a Beginner Mode, which removes jargon and simplifies everything into plain-language
+                steps and daily tasks. You can start with simple systems and grow into more complex funnels over time.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">Do I need special software to use the outputs?</div>
+              <div class="faq-a">
+                No. You can paste funnel copy into any page builder, load emails into any autoresponder, and follow traffic
+                plans on free platforms like YouTube, TikTok, or blogging platforms. If you already have tools, the factory
+                simply gives you better material to plug into them.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">What’s the smartest way to start?</div>
+              <div class="faq-a">
+                Begin by generating one system you’d realistically be willing to run yourself. Use it as a flagship offer—
+                either to implement personally or to sell as a product. Once you see how fast the factory works, you can
+                roll out more systems, micro-offers, and membership content.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <div style="font-size:0.8rem; color:#e5e7eb; margin-bottom:0.25rem;">
+            AI System Factory • aisystemfactory.com
+          </div>
+          <div>Own the engine. Build the systems. Sell the outputs.</div>
+        </div>
+        <div class="footer-right">
+          <div>Not financial or income advice. No earnings are guaranteed.</div>
+          <div>© <span id="year"></span> AI System Factory</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
